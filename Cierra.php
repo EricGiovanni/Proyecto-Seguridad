@@ -1,0 +1,10 @@
+<?php 
+	session_start();
+	if($_SESSION['Usuario'])
+	{
+		session_destroy();
+		header("location:login.html");
+	}
+	else
+		header("location:login.html");
+?>
