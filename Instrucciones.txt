@@ -1,0 +1,19 @@
+Crear Usuario: Eric
+Crear Contraseña: 2324020919992015
+	CREATE USER 'Eric'@'localhost' IDENTIFIED BY '2324020919992015';
+Dar todos los permisos
+	GRANT ALL PRIVILEGES ON * . * TO 'Eric'@'localhost';
+	FLUSH PRIVILEGES;
+Salir
+	Exit
+Ingresar con el usuario
+	mysql -u Eric -p
+	2324020919992015
+Crear base de datos llamada Login
+	CREATE DATABASE Login;
+Crear tabla Usuarios
+	CREATE TABLE Usuarios(
+	ID int PRIMARY KEY NOT NULL AUTO_INCREMENT,
+	User varchar(15),
+	Pass varchar(15)
+	);
