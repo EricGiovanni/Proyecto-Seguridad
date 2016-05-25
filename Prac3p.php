@@ -2,7 +2,7 @@
 	session_start();
 	$user = $_SESSION['Usuario'];
 	if(!$_SESSION['Usuario'] || $_SESSION['Usuario'] == '') 
-		header("Location:Login.html");
+		header("Location:Login.php");
 	if($_POST['Enviar'])
 	{
 		$cuenta = $_POST['cuenta'];
@@ -15,7 +15,7 @@
 				$arr = str_split($cuenta);
 				for($x = 8; $x >= 0; $x--)
 				{
-					echo $arr[$x];
+					echo htmlspecialchars($arr[$x]);
 				}
 			}
 			else
@@ -28,13 +28,11 @@
 				$arr = str_split($cuenta);
 				for($x = 8; $x >= 0; $x--)
 				{
-					echo $arr[$x];
+					echo htmlspecialchars($arr[$x]);
 				}
 			}
 			else
 				header("Location:Prac3.php");
 		}
-		else
-			header("Location:Prac3.php");
 	}
 ?>

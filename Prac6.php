@@ -9,11 +9,12 @@
 	<head>
 	</head>
 	<body>
-		<form action = "Prac4p.php" method = "POST">
-			<input name = "cuenta" type = "text" placeholder = "Escribe una cadena de texto"/><br/>
+		<form action = "Prac6p.php" method = "POST">
+			<input name = "cuenta" type = "text"  placeholder = "Escribe una cadena"/><br/>
+			<input name = "llave" type = "text" placeholder = "mopada"><br/>
 			Cifrar<input name = "cod" type = "radio" value = "0"/>
 			Descifrar<input name = "cod" type = "radio" value = "1"/><br/>
-			<input type = "submit" name = "Enviar"><br/>
+			<input type = "submit" name = "enviar"><br/>
 		</form>
 		<a href = "Practicas.php">Regresar</a>
 	</body>

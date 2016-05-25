@@ -1,23 +1,19 @@
 <?php
-	session_start();
+session_start();
 	$user = $_SESSION['Usuario'];
-	if(!$_SESSION['Usuario'] || $_SESSION['Usuario'] == '') 
-		header("Location:Login.html");
+	if(!$_SESSION['Usuario']||$_SESSION['Usuario']=='') 
+		header("Location:Sesion.php");
 ?>
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset = "UTF-8">
-		<title>Playfair-n</title>
+		<title>Practicas</title>
 	</head>
 	<body>
-		<h1>Cifrar o descifrar</h1>
-		<form action = "Prac2p.php" method = "POST">
-			<input type = "text" placeholder = "Texto a cifrar o descifrar" name = "Texto" pattern = "^[A-z]{1,}$" maxlength = "100"/><br/>
-			<input type = "text" placeholder = "Número" name = "Numero" pattern = "^[0-9]{1,3}$" maxlength  = "3"/><br/>
-			<input type = "radio" name = "Fair" value = "0">Cifrar
-			<input type = "radio" name = "Fair" value = "1">Descifrar<br/>
-			<input type = "submit" name = "Enviar"/><br/>
+		<form action="Prac2p.php" method="POST">
+			Ingrese texto: <input name="text" type="text" placeholder = "Texto"/><br/>
+			<input type="submit" name="Enviar" value="Enviar">
 		</form>
+		<a href = "Practicas.php">Regresar</a>
 	</body>
 </html>

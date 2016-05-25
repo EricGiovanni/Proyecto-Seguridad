@@ -1,5 +1,5 @@
 <?php
-	if(isset($_POST['Register']))
+	if(isset($_POST['Register']) && $_POST['csrf'] == $_SESSION['clave'])
 	{
 		function hash_password($pass, $sal) 
 		{
@@ -33,33 +33,33 @@
 						$insert = "INSERT INTO usuarios VALUES('','".mysqli_real_escape_string($conexion,$user)."','".mysqli_real_escape_string($conexion,$hash)."')";
 						mysqli_query($conexion,$insert);
 						echo '<script>alert("Usuario registrado");</script>';
-						echo '<script>location.href="Login.html"</script>';
+						echo '<script>location.href="Login.php"</script>';
 						mysqli_close($conexion);
 					}
 					else
 					{
 						echo '<script>alert("Ya existe el nombre de usuario que introduciste");</script>';
-						echo '<script>location.href="Login.html"</script>';
+						echo '<script>location.href="Login.php"</script>';
 						mysqli_close($conexion);
 					}
 				}
 				else
 				{
 					echo '<script>alert("No ingresaste una contraseña correcto")</script>';
-					echo '<script>location.href="Login.html"</script>';;
+					echo '<script>location.href="Login.php"</script>';;
 					mysqli_close($conexion);
 				}
 			}
 			else
 			{
 				echo '<script>alert("No ingresaste un usuario correcto")</script>';
-				echo '<script>location.href="Login.html"</script>';
+				echo '<script>location.href="Login.php"</script>';
 			}
 		}
 		else
 		{
 			echo '<script>alert("Las Contrase&ntilde;as no coinciden")</script>';
-			echo '<script>location.href="Login.html"</script>';
+			echo '<script>location.href="Login.php"</script>';
 		}
 	}
 ?>

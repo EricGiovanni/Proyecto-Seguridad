@@ -2,7 +2,7 @@
 	session_start();
 	$user = $_SESSION['Usuario'];
 	if(!$_SESSION['Usuario'] || $_SESSION['Usuario'] == '') 
-		header("Location:Login.html");
+		header("Location:Login.php");
 	if($_POST['Enviar'])
 	{
 		$text = $_POST['cuenta'];

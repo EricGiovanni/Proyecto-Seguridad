@@ -1,40 +1,45 @@
 <?php
-	session_start();
+session_start();
 	$user = $_SESSION['Usuario'];
-	if(!$_SESSION['Usuario'] || $_SESSION['Usuario'] == '') 
-		header("Location:Login.html");
-	if(isset($_POST['Enviar']))
+	if(!$_SESSION['Usuario']||$_SESSION['Usuario']=='') 
+		header("Location:Login.php");
+	if($_POST['Enviar'])
 	{
-		$num = $_POST['Fair'];
-		$text = $_POST['Texto'];
-		$cifr = $_POST['Numero'];
-		if($num == 0)
+		if(@($_POST['text']))
 		{
-			if(preg_match('/^[A-z]{1,}$/',$text) && preg_match('/^[0-9]{1,3}$/'))
+			function arr($val)
 			{
-				$div = str_split($text,$cifr);
-				for($x = 0; $x < count($cifr); $x++)
-				{
-					$y = $div[$x]
-				}
+				$arr =str_split($val);	
 			}
-			else
-				header("Location:Prac2.html");
-		}
-		elseif($num == 1)
-		{
-			if(preg_match('/^[A-z]{1,}$/',$text) && preg_match('/^[0-9]{1,3}$/'))
+			$txt=htmlspecialchars($_POST['text']);
+			$arr =str_split ($txt);
+			$num =count($arr);
+			$div=$num/4;
+			$n=ceil($div);
+			$var= $n*4;
+			while($num!=$var)
 			{
-				$div = str_split($text,$cifr);
+				array_push($arr," ");
+				$num++;
 			}
-			else
-				header("Location:Prac2.html");
+			$txt=implode($arr);
+			$array =str_split ($txt,$n);
+			$arr = $array[0];
+				$arr1 = str_split($arr);
+			$arr = $array[1];
+				$arr2 = str_split($arr);
+			$arr = $array[2];
+				$arr3 = str_split($arr);
+			$arr = $array[3];
+				$arr4 = str_split($arr);
+			for($i=0;$i<$n;$i++)
+			{
+				echo htmlspecialchars($arr1[$i].$arr2[$i].$arr3[$i].$arr4[$i]);
+			}
 		}
 		else
-		{
-			header("Location:Prac2.html");
-		}
+			header("Location:Prac2.php");
 	}
 	else
-		header("Location:Prac2.html");
+		header("Location:Prac2.php");
 ?>
